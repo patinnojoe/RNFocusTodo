@@ -3,10 +3,12 @@ import 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import DrawerContent from '../components/DrawerContent';
+
 export default function DrawerLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
+      <Drawer drawerContent={(props) => <DrawerContent {...props} />}>
         <Drawer.Screen
           name="index"
           options={{
