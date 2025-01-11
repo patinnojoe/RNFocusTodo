@@ -7,13 +7,12 @@ import { View, Image, Appearance, Text, ScrollView } from 'react-native';
 const DrawerContent = ({ navigation }) => {
   const route = useRoute();
   const routeName = getFocusedRouteNameFromRoute(route);
-  console.log(routeName);
 
   const colorScheme = Appearance.getColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
   const styles = createStyles(theme, colorScheme);
   const iconActiveColor = theme.activeIconColor;
-  console.log(iconActiveColor);
+
   return (
     <View style={styles.container}>
       {/* user avatar wrapper */}

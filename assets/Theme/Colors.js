@@ -16,6 +16,8 @@ export const Colors = {
     scrollbarColor: '#cccccc', // Light gray scrollbar
     activeIconColor: '#1D3557',
     inactiveIconColor: '#B0B0B0',
+    overlayColor: 'rgba(51, 41, 41, 0.548)',
+    headerBackgroundColor: '#f8f8f8',
   },
   dark: {
     name: 'dark',
@@ -34,5 +36,7 @@ export const Colors = {
     scrollbarColor: '#555555', // Darker gray scrollbar
     activeIconColor: '#FFD700',
     inactiveIconColor: '#A9A9A9',
+    overlayColor: 'rgba(51, 41, 41, 0.548)',
+    headerBackgroundColor: '#1e1e1e',
   },
 };
