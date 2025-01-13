@@ -6,12 +6,17 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import DrawerContent from '../components/DrawerContent';
 import { Appearance, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Colors } from '@/assets/Theme/Colors';
-import AddTodoModal from '../components/AddTodoModal';
+// import AddTodoModal from '../components/AddTodoModal';
+
+import { useDispatch } from 'react-redux';
+
+import { openModal } from '../store/modalSlice';
 
 export default function DrawerLayout() {
   const colorScheme = Appearance.getColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
   const styles = createStyles(theme, colorScheme);
+  const dispatch = useDispatch();
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -19,7 +24,7 @@ export default function DrawerLayout() {
         backgroundColor={theme.backgroundColor}
         barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
       />
-      <AddTodoModal isOpen={true} onClose={() => console.log('Modal closed')} />
+
       <Drawer
         drawerContent={(props) => <DrawerContent {...props} />}
         screenOptions={({ navigation }) => ({
@@ -34,7 +39,7 @@ export default function DrawerLayout() {
               <TouchableOpacity onPress={() => console.log('Button 1 pressed')}>
                 <Ionicons name="notifications-outline" size={24} color={theme.textColor} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => console.log('Button 2 pressed')}>
+              <TouchableOpacity onPress={() => dispatch(openModal())}>
                 <Ionicons name="add-circle" size={24} color={theme.headerTintColor || theme.textColor} />
               </TouchableOpacity>
             </View>
