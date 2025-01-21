@@ -1,3 +1,3 @@
 import avatar from './avatar.jpg';
-
-export { avatar };
+import blank from './blank.png';
+export { avatar, blank };
