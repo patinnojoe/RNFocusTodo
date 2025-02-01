@@ -8,7 +8,7 @@ import { Appearance, StatusBar, TouchableOpacity, View } from 'react-native';
 import { Colors } from '@/assets/Theme/Colors';
 // import AddTodoModal from '../components/AddTodoModal';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { openModal } from '../store/modalSlice';
 

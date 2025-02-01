@@ -1,6 +1,6 @@
 import { Colors } from '@/assets/Theme/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Appearance,
   Dimensions,
@@ -15,6 +15,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../store/todoSlice';
 import { closeModal } from '../store/modalSlice';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const isWeb = Platform.OS === 'web';
@@ -35,17 +36,21 @@ const AddTodoModal = ({ isOpen, onClose }) => {
     setTodoInput(newText);
   };
 
-  const handleAddTodo = () => {
+  const handleAddTodo = async () => {
     if (todoInput.trim() === '') {
       return;
     }
-    dispatch(
-      addTodo({
-        id: todos.todos.length + 1,
-        text: todoInput,
-        completed: false,
-      }),
-    );
+
+    const newTodo = {
+      id: todos.todos.length + 1,
+      text: todoInput,
+      completed: false,
+    };
+    console.log(newTodo);
+
+    // Add new todo to Redux
+    dispatch(addTodo(newTodo));
+
     setTodoInput('');
     dispatch(closeModal());
   };
